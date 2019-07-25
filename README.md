@@ -1,2 +1,2 @@
 # design_demo
-about the design pattern
+brief samples about the design pattern
