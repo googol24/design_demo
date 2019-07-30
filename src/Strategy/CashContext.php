@@ -26,10 +26,16 @@ class CashContext
                 $this->cash = new CashNormal();
                 break;
             case 'return':
-                $this->cash = new CashReturn(300, 100);
+                echo '请输入门槛金额：';
+                $limitMoney = trim(fgets(STDIN));
+                echo '请输入优惠金额：';
+                $returnMoney = trim(fgets(STDIN));
+                $this->cash = new CashReturn($limitMoney, $returnMoney);
                 break;
             case 'rebate':
-                $this->cash = new CashRebate(0.8);
+                echo '请输入折扣：';
+                $rebate = trim(fgets(STDIN));
+                $this->cash = new CashRebate($rebate);
                 break;
             default:
                 throw new LogicException('促销类型不合法！');
