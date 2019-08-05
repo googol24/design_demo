@@ -10,7 +10,6 @@ $xc = new Person('小菜');
 echo '第一种装扮：' . PHP_EOL;
 $wearTs = new TShirts();
 $wearTs->decorate($xc);
-$wearTs->show();
 
 $wearBt = new BigTrouser();
 $wearBt->decorate($wearTs);
