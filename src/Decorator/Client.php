@@ -9,22 +9,25 @@ $xc = new Person('小菜');
 
 echo '第一种装扮：' . PHP_EOL;
 $wearTs = new TShirts();
+$wearTs->decorate($xc);
 $wearTs->show();
-$wearBt = new BigTrouser();
-$wearBt->show();
-$wearSk = new Sneakers();
-$wearSk->show();
 
-$xc->show();
+$wearBt = new BigTrouser();
+$wearBt->decorate($wearTs);
+
+$wearSk = new Sneakers();
+$wearSk->decorate($wearBt);
+
+$wearSk->show();
 
 // ---------------
 
 echo PHP_EOL . '第二种装扮：' . PHP_EOL;
 $wearSt = new Suit();
-$wearSk->show();
+$wearSt->decorate($xc);
 $wearTe = new Tie();
-$wearTe->show();
+$wearTe->decorate($wearSt);
 $wearLs = new LeatherShoes();
-$wearLs->show();
+$wearLs->decorate($wearTe);
 
-$xc->show();
+$wearLs->show();

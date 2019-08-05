@@ -4,9 +4,11 @@ class Person
 {
     private $name;
 
-    public function __construct($name)
+    public function __construct($name = null)
     {
-        $this->name = $name;
+        if (!empty($name)) {
+            $this->name = $name;
+        }
     }
 
     public function show()
