@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 学生B的答卷
+ *
+ * @author googol24
+ */
 class TestPaperB extends TestPaper
 {
     public function answer1()
