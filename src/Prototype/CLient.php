@@ -25,6 +25,7 @@ $b->display();
 echo '-------------使用浅拷贝-------------------' . PHP_EOL;
 $c = $a->shallowCopy();
 $c->display();
+$c->setPersonalInfo('男', 30);
 $c->setWorkExperience('2010-2012', '腾讯公司');
 $c->display();
 $a->display();
@@ -34,6 +35,7 @@ echo '-------------使用深拷贝-------------------' . PHP_EOL;
 $d = $b->deepCopy();
 $d->display();
 
+$d->setPersonalInfo('男', 31);
 $d->setWorkExperience('2010-2012', '网易集团');
 $d->display();
 
