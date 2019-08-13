@@ -16,3 +16,9 @@ $paperB = new TestPaperB();
 $paperB->question1();
 $paperB->question2();
 $paperB->question3();
+
+echo '------------学生C的答卷：------------------' . PHP_EOL;
+$paperC = new TestPaperC();
+$paperC->question1();
+$paperC->question2();
+$paperC->question3();
