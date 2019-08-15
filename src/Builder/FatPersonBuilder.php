@@ -8,6 +8,21 @@
 class FatPersonBuilder extends PersonBuilder
 {
     /**
+     * 建造的对象
+     *
+     * @var PersonObject
+     */
+    private $fatPersonObject;
+
+    /**
+     * 构造器：实例化建造对象
+     */
+    public function __construct()
+    {
+        $this->fatPersonObject = new PersonObject();
+    }
+
+    /**
      * 构建头部
      *
      * @return mixed
@@ -15,7 +30,7 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildHead()
     {
-        echo '画一个胖子的头'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的头');
     }
 
     /**
@@ -26,7 +41,7 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildBody()
     {
-        echo '画一个胖子的躯干'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的躯干');
     }
 
     /**
@@ -37,7 +52,7 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildLeftArm()
     {
-        echo '画一个胖子的左臂'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的左臂');
     }
 
     /**
@@ -48,7 +63,7 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildRightArm()
     {
-        echo '画一个胖子的右臂'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的右臂');
     }
 
     /**
@@ -59,7 +74,7 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildLeftLeg()
     {
-        echo '画一个胖子的左脚'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的左脚');
     }
 
     /**
@@ -70,7 +85,19 @@ class FatPersonBuilder extends PersonBuilder
      */
     public function buildRightLeg()
     {
-        echo '画一个胖子的右脚'  . PHP_EOL;
+        $this->fatPersonObject->add('胖子的右脚');
     }
+
+    /**
+     * 返回被创建的人对象
+     *
+     * @return PersonObject
+     *
+     */
+    public function getPerson()
+    {
+        return $this->fatPersonObject;
+    }
+
 
 }

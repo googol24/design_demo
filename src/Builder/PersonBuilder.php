@@ -54,4 +54,12 @@ abstract class PersonBuilder
      *
      */
     public abstract function buildRightLeg();
+
+    /**
+     * 返回被创建的人对象
+     *
+     * @return PersonObject
+     *
+     */
+    public abstract function getPerson();
 }

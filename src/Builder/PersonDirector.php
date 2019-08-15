@@ -9,37 +9,20 @@
 class PersonDirector
 {
     /**
-     * 建造者
-     *
-     * @var PersonBuilder
-     */
-    private $personBuilder;
-
-    /**
-     * 构造函数
-     *
-     * @param PersonBuilder $pb 具体类型的建造者
-     *
-     */
-    public function __construct($pb)
-    {
-        $this->personBuilder = $pb;
-    }
-
-    /**
      * 创建人
+     *
+     * @param PersonBuilder $personBuilder
+     *
+     * @return mixed
      */
-    public function createPerson()
+    public function createPerson($personBuilder)
     {
-        // 约束按照指定的建造过程进行创建
-        echo '---------------创建开始----------------------' . PHP_EOL;
-        $this->personBuilder->buildHead();
-        $this->personBuilder->buildBody();
-        $this->personBuilder->buildLeftArm();
-        $this->personBuilder->buildRightArm();
-        $this->personBuilder->buildLeftLeg();
-        $this->personBuilder->buildRightLeg();
-        echo '---------------创建结束----------------------' . PHP_EOL;
-        echo PHP_EOL;
+        // 约束按照指定的建造过程（顺序）进行创建
+        $personBuilder->buildHead();
+        $personBuilder->buildBody();
+        $personBuilder->buildLeftArm();
+        $personBuilder->buildRightArm();
+        $personBuilder->buildLeftLeg();
+        $personBuilder->buildRightLeg();
     }
 }
