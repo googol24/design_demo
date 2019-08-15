@@ -40,5 +40,6 @@ class PersonDirector
         $this->personBuilder->buildLeftLeg();
         $this->personBuilder->buildRightLeg();
         echo '---------------创建结束----------------------' . PHP_EOL;
+        echo PHP_EOL;
     }
 }

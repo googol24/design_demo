@@ -12,7 +12,7 @@ $personDirector = new PersonDirector($thinPersonBuilder);
 $personDirector->createPerson();
 
 // 创建胖次
-echo PHP_EOL . '创建胖子：' . PHP_EOL;
+echo '创建胖子：' . PHP_EOL;
 $fatPersonBuilder = new FatPersonBuilder();
 $personDirector = new PersonDirector($fatPersonBuilder);
 $personDirector->createPerson();
