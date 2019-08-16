@@ -11,12 +11,12 @@ class DataAccess
     /**
      * DB类型：SQL Server
      */
-    const DB_SQL_SERVER = 'sql_server';
+    const DB_SQL_SERVER = 'SqlServer';
 
     /**
      * DB类型：Access
      */
-    const DB_ACCESS = 'access';
+    const DB_ACCESS = 'Access';
 
     /**
      * 数据库类型(sql server 或者 access 等)
@@ -67,5 +67,42 @@ class DataAccess
         }
 
         return $result;
+    }
+
+    /**
+     * 生产一个具体的用户对象(使用反射)
+     *
+     * @return object
+     *
+     * @throws Throwable
+     *
+     */
+    public static function createUserUsingReflect()
+    {
+        $className = self::$db . 'User';
+
+        $class = new ReflectionClass($className);
+
+        $user = $class->newInstance();
+
+        return $user;
+    }
+
+    /**
+     * 生产一个具体的部门对象（使用反射）
+     *
+     * @return Object
+     *
+     * @throws Throwable
+     */
+    public static function createDepartmentUsingReflect()
+    {
+        $className = self::$db . 'Department';
+
+        $class = new ReflectionClass($className);
+
+        $department = $class->newInstance();
+
+        return $department;
     }
 }
