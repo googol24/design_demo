@@ -36,6 +36,11 @@ $concreteSubject->notify();
 //        $this->name = $name;
 //    }
 //
+//    public function __toString()
+//    {
+//        return serialize($this);
+//    }
+//
 //    /**
 //     * 对象比较
 //     *
@@ -47,7 +52,7 @@ $concreteSubject->notify();
 //     */
 //    public static function equals($person1, $person2)
 //    {
-//        if (serialize($person1) === serialize($person2)) {
+//        if ($person1->__toString() === $person2->__toString()) {
 //            return true;
 //        }
 //
