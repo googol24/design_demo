@@ -1,5 +1,21 @@
 <?php
 
+// 错误处理器
+set_error_handler(function ($errNo, $errMsg, $file, $line) {
+    echo '程序产生了错误：' . PHP_EOL;
+    echo "错误代码：[{$errNo}] {$errMsg}" . PHP_EOL;
+    echo "错误行号：{$file}文件中的第{$line}行" . PHP_EOL;
+    echo "PHP版本：" . PHP_VERSION . "(" . PHP_OS . ")" . PHP_EOL;
+});
+
+// 异常处理器
+set_exception_handler(function ($exception) {
+    /** @var Exception $exception*/
+    echo '程序捕获到了异常：' . PHP_EOL;
+    echo $exception->getMessage() . PHP_EOL;
+    echo '程序已经终止';
+});
+
 // 自动加载
 spl_autoload_register(function ($class) {
     include "$class.php";
@@ -55,11 +71,8 @@ try {
     $iDepartment3 = DataAccess::createDepartmentUsingReflect();
     $iDepartment3->insert($department2);
     $iDepartment3->get(7);
-
 } catch (ReflectionException $e) {
-    echo '反射异常：' . $e->getMessage() . PHP_EOL;
-    exit();
+    throw new LogicException('反射异常：' . $e->getMessage());
 } catch (Throwable $e) {
-    echo '创建用户对象异常：' . $e->getMessage();
-    exit();
+    throw new LogicException('其他异常：' . $e->getMessage());
 }
