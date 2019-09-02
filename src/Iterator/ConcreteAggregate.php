@@ -22,7 +22,8 @@ class ConcreteAggregate extends Aggregate
      */
     public function createIterator()
     {
-        return new ConcreteIterator($this);
+//        return new ConcreteIterator($this);
+        return new ConcreteDescIterator($this);
     }
 
     /**

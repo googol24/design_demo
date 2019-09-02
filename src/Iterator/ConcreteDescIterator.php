@@ -1,11 +1,11 @@
 <?php
 
 /**
- * 具体的迭代类
+ * 具体迭代类（反向迭代）
  *
  * @author zhangzhengkun
  */
-class ConcreteIterator extends ItemIterator
+class ConcreteDescIterator extends ItemIterator
 {
     /**
      * 聚集对象
@@ -24,7 +24,7 @@ class ConcreteIterator extends ItemIterator
     public function __construct($aggregate)
     {
         $this->aggregate    = $aggregate;
-        $this->currentIndex = 0;
+        $this->currentIndex = $this->aggregate->count() - 1;
     }
 
     /**
@@ -35,7 +35,7 @@ class ConcreteIterator extends ItemIterator
      */
     public function first()
     {
-        return $this->aggregate->getItem(0);
+        return $this->aggregate->getItem($this->aggregate->count() - 1);
     }
 
     /**
@@ -46,9 +46,9 @@ class ConcreteIterator extends ItemIterator
      */
     public function next()
     {
-        $this->currentIndex++;
+        $this->currentIndex--;
 
-        if ($this->currentIndex < $this->aggregate->count()) {
+        if ($this->currentIndex >= 0) {
 
             return $this->aggregate->getItem($this->currentIndex);
         }
@@ -75,7 +75,7 @@ class ConcreteIterator extends ItemIterator
      */
     public function isDone()
     {
-        if ($this->currentIndex == $this->aggregate->count()) {
+        if ($this->currentIndex == -1) {
             return true;
         }
 
